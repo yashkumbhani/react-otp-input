@@ -60,5 +60,6 @@
   },
   "bugs": {
     "url": "https://github.com/devfolioco/react-otp-input/issues"
-  }
+  },
+  "dependencies": {}
 }
