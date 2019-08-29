@@ -104,6 +104,7 @@ class SingleOtpInput extends PureComponent<*> {
             hasErrored && errorStyle
           )}
           type={isInputNum ? 'text' : 'tel'}
+          inputmode={isInputNum ? 'numeric' : undefined}
           {...pattern}
           {...numValueLimits}
           maxLength="1"
@@ -217,6 +218,9 @@ class OtpInput extends Component<Props, State> {
       e.preventDefault();
       this.focusPrevInput();
     } else if (e.keyCode === RIGHT_ARROW || e.key === 'ArrowRight') {
+      e.preventDefault();
+      this.focusNextInput();
+    } else if (e.key === e.target.value) {
       e.preventDefault();
       this.focusNextInput();
     }
