@@ -85,7 +85,7 @@ class SingleOtpInput extends PureComponent<*> {
     } = this.props;
 
     const numValueLimits = isInputNum ? { min: 0, max: 9 } : {};
-    const pattern = isInputNum ? { pattern: '\d*' } : {};
+    const pattern = isInputNum ? { pattern: '[0-9]*' } : {};
 
     return (
       <div style={{ display: 'flex', alignItems: 'center' }}>
