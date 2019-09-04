@@ -87,7 +87,6 @@ class SingleOtpInput extends PureComponent<*> {
     } = this.props;
 
     const numValueLimits = isInputNum ? { min: 0, max: 9 } : {};
-    const pattern = isInputNum ? { pattern: NUMBERS_ONLY_PATTERN } : {};
 
     return (
       <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -105,9 +104,7 @@ class SingleOtpInput extends PureComponent<*> {
             isDisabled && disabledStyle,
             hasErrored && errorStyle
           )}
-          type={isInputNum ? 'text' : 'tel'}
-          inputmode={isInputNum ? 'numeric' : undefined}
-          {...pattern}
+          type={isInputNum ? 'number' : 'tel'}
           {...numValueLimits}
           maxLength="1"
           ref={input => {
