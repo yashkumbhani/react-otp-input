@@ -211,10 +211,13 @@ class OtpInput extends Component<Props, State> {
 
   // Handle cases of backspace, delete, left arrow, right arrow
   handleOnKeyDown = (e: Object) => {
-    if (e.keyCode === BACKSPACE || e.key === 'Backspace') {
-      e.preventDefault();
+      if (e.keyCode === BACKSPACE || e.key === 'Backspace') {
+        e.preventDefault();
+        const otp = this.getOtpValue();
+        if(!otp[this.state.activeInput]){
+          this.focusPrevInput();
+        }
       this.changeCodeAtFocus('');
-      this.focusPrevInput();
     } else if (e.keyCode === DELETE || e.key === 'Delete') {
       e.preventDefault();
       this.changeCodeAtFocus('');
